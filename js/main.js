@@ -48,6 +48,30 @@ skillsHeader.forEach((element) => {
 });
 
 /*==================== QUALIFICATION TABS ====================*/
+const tabs = document.querySelectorAll('[data-target]');
+const tabContents = document.querySelectorAll('[data-content]');
+
+tabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.target);
+
+    // Remove the active class from all tab contents
+    tabContents.forEach((tabContent) => {
+      tabContent.classList.remove('qualification__active');
+    });
+
+    // Add the active class to the target tab content
+    target.classList.add('qualification__active');
+
+    // Remove the active class from all tabs
+    tabs.forEach((tab) => {
+      tab.classList.remove('qualification__active');
+    });
+
+    // Add the active class to the clicked tab
+    tab.classList.add('qualification__active');
+  });
+});
 
 /*==================== SERVICES MODAL ====================*/
 
